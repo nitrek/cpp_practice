@@ -1,0 +1,27 @@
+
+# Created by https://www.gitignore.io/api/c++
+
+### C++ ###
+# Prerequisites
+*/*.d
+
+# Compiled Object files
+*/*.o
+
+# Executables
+*/*.exe
+*/*.out
+*/*.app
+*.vscode
+visualstudio2015/*
+
+*/obj/Debug/*.exe
+*/obj/Debug/*.o
+*.out
+*.exe
+*.o
+*.exe
+*.layout
+*/*.layout
+*.depend
+*/*.depend
