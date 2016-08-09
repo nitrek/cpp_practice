@@ -1,7 +1,9 @@
 #include"SpeedFast.h"
 #include<iostream>
+#include<fstream>
 int main()
 {
+    ifstream cin("input.txt");
     Dispacher dispacher1;
     Shipment shipment1;
     Customer customer1("sender's address");
@@ -34,6 +36,17 @@ int main()
     dispacher1.disptachShipment(shipment3);
 
     shipment3.printDetails();
+
+    GreetingShipment shipment4;
+    shipment4.makeShipment("Receiver 3's address",customer2,URGENT,17.4,Date(9,9,2016),Date(14,9,2016));
+    shipment4.setMessage("hello world");
+    shipment4.printDetails();
+
+    dispacher1.recieveShipment(shipment4);
+    dispacher1.recivePayment(shipment4);
+    dispacher1.disptachShipment(shipment4);
+
+    shipment4.printDetails();
 
     dispacher1.printTotalAmount();
     return 0;

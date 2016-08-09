@@ -63,5 +63,5 @@ cout<<"\nShipment Date:\t";dateofShipment.print();
 cout<<"\nDelivery Date:\t";dateOfDelivery.print();
 cout<<"\nStatus:\t"<<status;
 cout<<"\nAmount:\t"<<amount;
-cout<<"\n ----------------------------------";
+//cout<<"\n ----------------------------------";
 }

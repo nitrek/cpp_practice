@@ -4,7 +4,7 @@
 #include<iostream>
 using namespace std;
 enum PRIORITYTYPES {LOW=1,NORMAL=3,URGENT};
-enum STATUS {CREATED=0,RECIVED,DISPACHED,DELIVERED};
+enum STATUS {CREATED,RECIVED,DISPACHED,DELIVERED};
 typedef struct DateStructure
 {
 private:
@@ -47,6 +47,14 @@ public:
     void updateStatus(STATUS);
     int getAmount();
     STATUS getStatus();
+    void printDetails();
+};
+class GreetingShipment :public Shipment{
+private:
+    string message;
+public:
+    void setMessage(string);
+    string getMessage();
     void printDetails();
 };
 class Dispacher
