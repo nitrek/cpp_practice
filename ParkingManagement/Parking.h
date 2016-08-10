@@ -15,28 +15,31 @@ private:
     USERTYPE userType;
     int numberOfVisits =1;
     bool parked;
+    int amount;
 public:
     static int totalusers;
     User();
     void registerVehivle(VTYPE vehicleType,string registrationNumber,int debitCardNumber,USERTYPE);
-    void calPayment();
+    int calPayment();
     int makePayment();
     bool park();
     void unpark();
+    int getVisits() const;
+    friend void freePark(User u);
 };
 class Admin
 {
 public:
 
     void setslots(int, int);
-    void getFreeSlots();
+    void getFreeSlots() const;
     bool takeSlot();
     void freeSlot();
-    void generateReport();
-
+    void generateReport() const;
 private:
     static int numberOfSlots;
     static int freeSlots;
+    static int totalVisits;
 
 };
 #endif // PARKING_H_INCLUDED

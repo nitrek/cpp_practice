@@ -4,6 +4,7 @@ User::User()
 {
     totalusers++;
     userId =   totalusers;
+    amount =0;
 }
 
 void User::registerVehivle(VTYPE vehicleType,string registrationNumber,int debitCardNumber,USERTYPE ut)
@@ -14,55 +15,65 @@ void User::registerVehivle(VTYPE vehicleType,string registrationNumber,int debit
     this->debitCardNumber=debitCardNumber;
     this->userType = ut;
 }
- void User::calPayment()
- {
+int User::calPayment()
+{
     if(userType == EMP)
-      {
+    {
         if(vehicleType == TWOWHEEL)
             parkingFee = 100;
         if(vehicleType == FOURWHEEL)
             parkingFee = 200;
-      }
+    }
     else
     {
-         if(vehicleType == TWOWHEEL)
+        if(vehicleType == TWOWHEEL)
             parkingFee = 10;
         if(vehicleType == FOURWHEEL)
             parkingFee = 20;
     }
- }
- int User::makePayment(){
-     return numberOfVisits*parkingFee;
- }
-
- bool User::park(){
-
- Admin a ;
- if(a.takeSlot())
- {
-     parked = true;
- if(userType == VIS)
- {
-    numberOfVisits++;
- }
- return true;
- }
- else{
-        parked = false;
-        cout<< "no slots available "<<userId<<endl;
-return false;
- }
- }
- void User::unpark()
+    amount  = amount + parkingFee;
+    return parkingFee;
+}
+int User::makePayment()
+{
+    return amount;
+}
+int User::getVisits() const
+{
+    return numberOfVisits;
+}
+bool User::park()
 {
 
-     Admin a ;
-     if(parked)
-     {
+    Admin a ;
+    if(a.takeSlot())
+    {
+        parked = true;
+        cout<<"\n Hi! Parked "<<userId<<"\n";
+        if(userType == VIS)
+        {
+            numberOfVisits++;
+        }
+        return true;
+    }
+    else
+    {
+        parked = false;
+        cout<< "no slots available "<<userId<<endl;
+        return false;
+    }
+}
+void User::unpark()
+{
+
+    Admin a ;
+    if(parked)
+    {
         a.freeSlot();
         cout<<"\nbye "<<userId;
-     }
+    }
 }
+
 /*
 void User::printDetails()
 {
