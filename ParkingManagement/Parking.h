@@ -1,28 +1,41 @@
 #ifndef PARKING_H_INCLUDED
 #define PARKING_H_INCLUDED
-class users{
+#include <iostream>
+using namespace std;
+enum USERTYPE {EMP,VIS};
+enum VTYPE {TWOWHEEL,FOURWHEEL};
+class User
+{
 private:
     int userId;
-    string vehicleType;
+    VTYPE vehicleType;
     string registrationNumber;
     int debitCardNumber;
     int parkingFee;
+    USERTYPE userType;
+    int numberOfVisits =1;
 public:
-    users(int userId);
-    void registerVehivle(string vehicleType,string registrationNumber,int debitCardNumber);
-    void makePayment();
-    void park();
+    static int totalusers;
+    User();
+    void registerVehivle(VTYPE vehicleType,string registrationNumber,int debitCardNumber,USERTYPE);
+    void calPayment();
+    int makePayment();
+    bool park();
+    void unpark();
 };
-class admin{
-    int numberOfSlots;
-    int freeSlots;
+class Admin
+{
 public:
-    void takeSlot();
+
+    void setslots(int, int);
+    void getFreeSlots();
+    bool takeSlot();
     void freeSlot();
     void generateReport();
 
-};
-class visitors{
-    int
+private:
+    static int numberOfSlots;
+    static int freeSlots;
+
 };
 #endif // PARKING_H_INCLUDED
