@@ -14,6 +14,7 @@ private:
     int parkingFee;
     USERTYPE userType;
     int numberOfVisits =1;
+    bool parked;
 public:
     static int totalusers;
     User();

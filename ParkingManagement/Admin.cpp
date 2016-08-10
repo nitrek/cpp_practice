@@ -32,15 +32,7 @@ bool Admin::takeSlot()
 
 }
 
-void Admin::generateReport(Users []u)
+void Admin::generateReport()
 {
-
-    cout<<"total slots = "<< numberOfSlots<< endl;
-    cout<<"free slots available"<< freeSlots<<endl;
-    for (int i=0,i<u.size(), i++)
-    {
-        cout<<"details of user "<< i << endl;
-        cout<<u[i].get
-
-    }
+    cout<<"total slots = "<<numberOfSlots;
 }

@@ -40,6 +40,7 @@ void User::registerVehivle(VTYPE vehicleType,string registrationNumber,int debit
  Admin a ;
  if(a.takeSlot())
  {
+     parked = true;
  if(userType == VIS)
  {
     numberOfVisits++;
@@ -47,7 +48,8 @@ void User::registerVehivle(VTYPE vehicleType,string registrationNumber,int debit
  return true;
  }
  else{
-        cout<< "no slots available"<<endl;
+        parked = false;
+        cout<< "no slots available "<<userId<<endl;
 return false;
  }
  }
@@ -55,14 +57,18 @@ return false;
 {
 
      Admin a ;
-     a.freeSlot();
+     if(parked)
+     {
+        a.freeSlot();
+        cout<<"\nbye "<<userId;
+     }
 }
-
+/*
 void User::printDetails()
 {
 
-
 }
 
+*/
 
 
